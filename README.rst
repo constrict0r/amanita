@@ -6,7 +6,7 @@ amanita
     :target: https://pypi.python.org/pypi/amanita
     :alt: Latest PyPI version
 
-‘Of the mushroom,’ said the Caterpillar, just as if she had asked it aloud; and in another moment it was out of sight.
+Create python customizable projects.
 
 Usage
 =====
@@ -45,6 +45,8 @@ Compatibility
 
 License
 =======
+
+MIT. See the `LICENSE <LICENSE>`_ file for more details.
 
 Authors
 =======

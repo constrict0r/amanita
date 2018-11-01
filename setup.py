@@ -17,7 +17,7 @@ setup(
     author="constrict0r",
     author_email="constrict0r@protonmail.com",
 
-    description="‘Of the mushroom,’ said the Caterpillar, just as if she had asked it aloud; and in another moment it was out of sight",
+    description="Create python customizable projects",
     long_description=long_description,
 
     packages=find_packages(exclude=('tests',)),
