@@ -1,4 +1,4 @@
-# Sample Test passing with pytest
+# Amanita tests.
 
 from amanita import amanita
 
