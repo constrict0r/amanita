@@ -2,6 +2,7 @@
 
 from amanita import amanita
 
+
 def test_enjoy(capfd):
 
     amanita.enjoy()
