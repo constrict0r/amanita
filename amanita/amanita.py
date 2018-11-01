@@ -2,6 +2,7 @@
 
 """Main module."""
 
+
 def enjoy():
     amanita = """\
           ___.....___
