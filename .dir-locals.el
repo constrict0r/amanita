@@ -2,3 +2,6 @@
 
 ;; Activate 'amanita' virtual enviroment from emacs.
 ((nil . ((pyvenv-workon . "amanita"))))
+
+;; Must run on shell: cp /usr/bin/pdb3 ~/.virtualenvs/amanita/bin/pdb
+;; And change #! /usr/bin/python3 for #! /home/constrict0r/.virtualenvs/amanita/bin/python
