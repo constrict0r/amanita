@@ -24,6 +24,12 @@ setup(
 
     install_requires=[],
 
+    entry_points={
+        'console_scripts': [
+            'amanita = amanita.__main__:main'
+        ]
+    },
+
     zip_safe=False,
 
     classifiers=[
