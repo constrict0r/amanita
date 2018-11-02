@@ -1,4 +1,4 @@
-;;; Directory Local Variables
-;;; For more information see (info "(emacs) Directory Variables")
+;; Directory Local Variables
 
-((nil . ((pyvenv-workon . "seringa"))))
+;; Activate 'amanita' virtual enviroment from emacs.
+((nil . ((pyvenv-workon . "amanita"))))
