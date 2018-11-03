@@ -70,5 +70,6 @@ Authors
 
 Enjoy!!
 
-  .. image:: resources/img/enjoy.png
+  .. image:: https://github.com/constrict0r/amanita/blob/master/resources/img/enjoy.png
+     :alt: Amanita
 
