@@ -24,19 +24,19 @@ Usage
 Ingredients
 ===========
 
-  .. image:: resources/img/python.png
+  .. image:: https://github.com/constrict0r/amanita/blob/master/resources/img/python.png
      :target: https://www.python.org
 
-  .. image:: resources/img/reestructuredtext.png
+  .. image:: https://github.com/constrict0r/amanita/blob/master/resources/img/reestructuredtext.png
      :target: http://docutils.sourceforge.net/rst.html
 
-  .. image:: resources/img/debian.png
+  .. image:: https://github.com/constrict0r/amanita/blob/master/resources/img/debian.png
      :target: https://www.debian.org
 
-  .. image:: resources/img/cookiecutter.png
+  .. image:: https://github.com/constrict0r/amanita/blob/master/resources/img/cookiecutter.png
      :target: https://github.com/audreyr/cookiecutter
 
-  .. image:: resources/img/amanita.png
+  .. image:: https://github.com/constrict0r/amanita/blob/master/resources/img/amanita.png
      :target: https://es.wikipedia.org/wiki/Amanita_muscaria
 
 Installation
