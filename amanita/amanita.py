@@ -11,7 +11,7 @@
 
 
 def enjoy():
-    """A tasty amanita.
+    """A tasty mushroom.
 
     Enjoy!!
 
