@@ -12,7 +12,7 @@ amanita
    
 .. image:: https://readthedocs.org/projects/amanita/badge/?version=latest
    :target: https://amanita.readthedocs.io
-   :alt: Later Readthedocs guild status
+   :alt: Latest Readthedocs build status
    
    https://readthedocs.org/projects/amanita/badge/?version=latest
 
