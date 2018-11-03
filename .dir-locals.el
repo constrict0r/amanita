@@ -8,3 +8,6 @@
 
 ;; First time on emacs must call a shell an install the package to work:
 ;; M-x RET shell RET python setup.py install RET.
+
+;; Tox default enviroment.
+((nil . ((tox-default-env . "py35"))))
