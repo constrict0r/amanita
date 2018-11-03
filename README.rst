@@ -10,11 +10,9 @@ amanita
    :target: https://travis-ci.org/constrict0r/amanita
    :alt: Latest Travis CI build status
    
-.. image:: https://readthedocs.org/projects/amanita/badge/?version=latest
+.. image:: https://readthedocs.org/projects/amanita/badge
    :target: https://amanita.readthedocs.io
    :alt: Latest Readthedocs build status
-   
-   https://readthedocs.org/projects/amanita/badge/?version=latest
 
 Create python customizable projects.
 
