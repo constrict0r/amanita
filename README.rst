@@ -9,7 +9,7 @@ amanita
 .. image:: https://api.travis-ci.com/constrict0r/amanita.svg
    :target: https://travis-ci.org/constrict0r/amanita
    :alt: Latest Travis CI build status
-   
+
 .. image:: https://readthedocs.org/projects/amanita/badge
    :target: https://amanita.readthedocs.io
    :alt: Latest Readthedocs build status
@@ -26,18 +26,23 @@ Ingredients
 
   .. image:: https://github.com/constrict0r/amanita/blob/master/resources/img/python.png
      :target: https://www.python.org
+     :alt: Python
 
   .. image:: https://github.com/constrict0r/amanita/blob/master/resources/img/reestructuredtext.png
      :target: http://docutils.sourceforge.net/rst.html
+     :alt: RestructuredText
 
   .. image:: https://github.com/constrict0r/amanita/blob/master/resources/img/debian.png
      :target: https://www.debian.org
+     :alt: Debian
 
   .. image:: https://github.com/constrict0r/amanita/blob/master/resources/img/cookiecutter.png
      :target: https://github.com/audreyr/cookiecutter
+     :alt: Cookiecutter
 
   .. image:: https://github.com/constrict0r/amanita/blob/master/resources/img/amanita.png
      :target: https://es.wikipedia.org/wiki/Amanita_muscaria
+     :alt: Amanita
 
 Installation
 ============
