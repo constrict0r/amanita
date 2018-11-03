@@ -7,8 +7,14 @@ amanita
     :alt: Latest PyPI version
 
 .. image:: https://api.travis-ci.com/constrict0r/amanita.svg
-   :target: https://api.travis-ci.com/constrict0r/amanita
+   :target: https://travis-ci.org/constrict0r/amanita
    :alt: Latest Travis CI build status
+   
+.. image:: https://readthedocs.org/projects/amanita/badge/?version=latest
+   :target: https://amanita.readthedocs.io
+   :alt: Later Readthedocs guild status
+   
+   https://readthedocs.org/projects/amanita/badge/?version=latest
 
 Create python customizable projects.
 
