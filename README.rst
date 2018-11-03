@@ -6,6 +6,10 @@ amanita
     :target: https://pypi.python.org/pypi/amanita
     :alt: Latest PyPI version
 
+.. image:: https://api.travis-ci.com/constrict0r/amanita.svg
+   :target: https://api.travis-ci.com/constrict0r/amanita
+   :alt: Latest Travis CI build status
+
 Create python customizable projects.
 
 Usage
