@@ -1,4 +1,4 @@
-"""Amanita - Create custom python projects"""
+"""amanita - Create custom python projects"""
 
 __title__ = 'amanita'
 __version__ = '0.0.1'
