@@ -1,4 +1,4 @@
-# Amanita tests.
+# Amanita tests.import subprocess
 import subprocess
 import os
 from amanita import amanita
@@ -7,7 +7,7 @@ from amanita import amanita
 # Enjoy.
 def test_enjoy(capfd):
 
-    amanita.enjoy()
+    print(amanita.enjoy())
     out, err = capfd.readouterr()
     assert "___.....___" in out
 

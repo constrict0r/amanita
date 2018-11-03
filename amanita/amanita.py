@@ -1,9 +1,24 @@
 # -*- coding: utf-8 -*-
 
-"""Main module."""
+"""
+.. module:: amanita
+    :noindex:
+    :platform: Linux
+    :synopsis: create customizable python projects.
+
+.. moduleauthor:: constrict0r <constrict0r@protonmail.com>
+"""
 
 
 def enjoy():
+    """A tasty amanita.
+
+    Enjoy!!
+
+    Returns:
+        string: Tasty amanita.
+
+    """
     amanita = """\
           ___.....___
       .'"    ()      o"`
@@ -22,4 +37,4 @@ def enjoy():
            :         :           
       '''|| `._____.'''|||
     """
-    print(amanita)
+    return amanita
