@@ -12,13 +12,15 @@ def test_enjoy(capfd):
     assert "___.....___" in out
 
 
-# Console script without parameters.
+# Console script without arguments.
 def test_console_no_args():
 
     subprocess.check_call(['amanita'], env=os.environ.copy(),  shell=True)
 
 
-# Console script with parameters.
+# Console script with arguments.
 def test_console_args():
 
-    subprocess.check_call(['amanita', 'a'], env=os.environ.copy(),  shell=True)
+    subprocess.check_call(['amanita --version'],
+                          env=os.environ.copy(),
+                          shell=True)
