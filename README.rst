@@ -12,6 +12,8 @@ amanita
 
 Create python customizable projects.
 
+Documentation on `read the docs <https://amanita.readthedocs.io>`_.
+
 Usage
 =====
 
