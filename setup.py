@@ -22,9 +22,7 @@ setup(
 
     packages=find_packages(exclude=('tests',)),
 
-    install_requires=[
-        'pytest',
-    ],
+    install_requires=[],
 
     entry_points={
         'console_scripts': [
