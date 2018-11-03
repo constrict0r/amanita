@@ -22,11 +22,13 @@ setup(
 
     packages=find_packages(exclude=('tests',)),
 
-    install_requires=[],
+    install_requires=[
+        'click',
+    ],
 
     entry_points={
         'console_scripts': [
-            'amanita = amanita.__main__:main'
+            'amanita = amanita.__main__:main',
         ]
     },
 
