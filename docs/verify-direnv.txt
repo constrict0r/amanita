@@ -1,0 +1,10 @@
+@startuml
+start
+:Get arguments;
+:Check OS;
+if (linux?) then (yes)
+  :verify direnv installation;
+else (no)
+endif
+stop
+@enduml
