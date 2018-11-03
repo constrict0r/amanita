@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """amanita - Create custom python projects"""
 
 __title__ = 'amanita'
