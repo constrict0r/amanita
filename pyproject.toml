@@ -1,0 +1,47 @@
+[tool.poetry]
+name = "amanita"
+version = "0.1.0"
+description = "Create customizable python projects"
+authors = ["constrict0r <constrict0r@protonmail.com>"]
+license="MIT"
+
+readme = "README.rst"
+
+homepage="https://github.com/constrict0r/amanita"
+repository="https://github.com/constrict0r/amanita"
+documentation="https://amanita.readthedocs.io"
+
+keywords = ["project", "auto"]
+
+classifiers = [
+    'Topic :: Software Development :: Build Tools',
+    'License :: OSI Approved :: MIT License',
+]
+
+[tool.poetry.dev-dependencies]
+pytest = "^3.0"
+tox = "^3.5.3"
+
+[tool.poetry.dependencies]
+click = "^7.0"
+
+[tool.poetry.scripts]
+amanita = "amanita.cli:main"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
+[tool.tox]
+legacy_tox_ini= """
+[tox]
+skipsdist = True
+envlist = py{35}
+
+[testenv]
+deps = 
+  pytest
+commands =
+  poetry install
+  py.test tests
+"""
