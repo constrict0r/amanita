@@ -39,7 +39,8 @@ skipsdist = True
 envlist = py{35}
 
 [testenv]
-deps = 
+deps =
+  poetry
   pytest
 commands =
   poetry install
