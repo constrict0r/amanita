@@ -24,19 +24,21 @@ tox = "^3.5.3"
 
 [tool.poetry.dependencies]
 click = "^7.0"
+future = "^0.15.2"
+jinja2 = ""
 
 [tool.poetry.scripts]
 amanita = "amanita.cli:main"
-
-[build-system]
-requires = ["poetry>=0.12"]
-build-backend = "poetry.masonry.api"
 
 [tool.tox]
 legacy_tox_ini= """
 [tox]
 skipsdist = True
 envlist = py{35}
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
 
 [testenv]
 deps =
@@ -46,3 +48,4 @@ commands =
   poetry install
   py.test tests
 """
+

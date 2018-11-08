@@ -1,6 +1,7 @@
 # Amanita tests.import subprocess
-import subprocess
 import os
+import subprocess
+
 from amanita import amanita
 
 
@@ -15,15 +16,18 @@ def test_enjoy(capfd):
 # Console script without arguments.
 def test_console_no_args():
 
-    subprocess.check_call(['amanita'], env=os.environ.copy(),  shell=True)
+    subprocess.check_call('amanita', env=os.environ.copy(),  shell=True)
 
 
 # Console script with arguments.
 def test_console_args(capfd):
 
-    console_output = subprocess.check_output(['amanita --version'],
+    console_output = subprocess.check_output('amanita --version',
                                              env=os.environ.copy(),
                                              shell=True)
     print(console_output)
     out, err = capfd.readouterr()
     assert "amanita" in out
+
+# Create test for poetry change config on settings.virtualenvs.in-project.
+# ...

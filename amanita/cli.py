@@ -8,6 +8,7 @@ import sys
 import click
 
 from amanita import __version__
+from amanita import project
 
 
 def version_msg():
@@ -20,16 +21,15 @@ def version_msg():
 
 @click.command(context_settings=dict(help_option_names=[u'-h', u'--help']))
 @click.version_option(__version__, u'-V', u'--version', message=version_msg())
-# @click.option(
-#     u'-p',
-#     help=u'Path to project destination.',
-#     default='myNewProject',
-# )
-def main():
-    """amanita cli main rutine"""
-    # if args is None:
-    #     if len(sys.argv) > 1:
-    #         args = sys.argv[1]
+@click.argument('destination', required=True)
+@click.option(
+     u'-d', u'--direnv', is_flag=True,
+     help=u'Install and configure direnv console enviroment switcher.')
+@click.option(
+     u'-e', '--venv', is_flag=True,
+     help=u'Create and configure a virtual enviroment.')
+# TODO: add --dry-run
+def main(destination, direnv, venv):
+    """Creates a customizable python project"""
 
-    print("This is the main routine.")
-    print("")
+    project.Project(destination, direnv, venv)
