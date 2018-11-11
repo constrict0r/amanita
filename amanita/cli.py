@@ -21,15 +21,18 @@ def version_msg():
 
 @click.command(context_settings=dict(help_option_names=[u'-h', u'--help']))
 @click.version_option(__version__, u'-V', u'--version', message=version_msg())
-@click.argument('destination', required=True)
+@click.argument('path', required=True)
 @click.option(
      u'-d', u'--direnv', is_flag=True,
      help=u'Install and configure direnv console enviroment switcher.')
 @click.option(
-     u'-e', '--venv', is_flag=True,
+     u'-v', '--venv', is_flag=True,
      help=u'Create and configure a virtual enviroment.')
+@click.option(
+     u'-e', '--venv-path',
+     help=u'Create and configure a virtual enviroment on the given path.')
 # TODO: add --dry-run
-def main(destination, direnv, venv):
+def main(path, direnv, venv, venv_path):
     """Creates a customizable python project"""
 
-    project.Project(destination, direnv, venv)
+    project.Project(path, direnv, venv, venv_path)

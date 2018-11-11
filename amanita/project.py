@@ -20,15 +20,27 @@ class Project:
     tox = False
     travis = False
     venv = False
+    venv_path = False
     web = False
 
     # Create the project.
-    def __init__(self, destination, direnv=False, venv=False):
+    def __init__(self, path, direnv=False, venv=False, venv_path=''):
+        """Create a customizable project.
+
+        Creates a python project with basic package directory layout
+        and optionally:
+         - A virtual enviroment inside or outside the project directory.
+
+        Args:
+            path (str): Path where to create the project.
+            direnv: Configure direnv?
+            venv: Create a virtual enviroment?
+        """
 
         # Create package folder structure.
         try:
             assert subprocess.call('poetry new -- ' +
-                                   destination, shell=True) == 0
+                                   path, shell=True) == 0
 
         except AssertionError:
             click.echo(click.style('An error occured creating the project',
@@ -37,16 +49,24 @@ class Project:
 
         # Create virtual enviroment.
         if venv is True:
-            self.venv_setup(destination)
+            self.venv_setup(path)
+        elif venv_path is not None:
+            self.venv_setup(venv_path)
 
     # Create virtual enviroment.
     @staticmethod
     def venv_setup(path):
+        """Create a virtual enviroment.
 
+        Creates a virtual enviroment on a given path.
+
+        Args:
+            path (str): Path where to create the virtual enviroment.
+
+        Returns:
+            bool: True for success, False otherwise.
+        """
         from poetry.utils.env import Env
-
-        # TODO: test this:
-        # path = '/dev/null'
 
         # This will overwrite an existing virtual enviroment.
         try:
@@ -68,3 +88,5 @@ class Project:
                        click.style(path, fg='cyan') +
                        click.style(' is not a directory', fg='red'))
             sys.exit(1)
+
+        return True
