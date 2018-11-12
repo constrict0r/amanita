@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-"""Project creation."""
+"""Creates customizable projects"""
 import os
 import sys
 import subprocess
@@ -9,19 +9,7 @@ import click
 
 
 class Project:
-    """Template to create python projects"""
-
-    # Variables for customizing the project.
-    direnv = False
-    emacs = False
-    pypi = False
-    repository = False
-    sphinx = False
-    tox = False
-    travis = False
-    venv = False
-    venv_path = False
-    web = False
+    """Create python projects from simple package to web application."""
 
     # Create the project.
     def __init__(self, path, direnv=False, venv=False, venv_path=''):

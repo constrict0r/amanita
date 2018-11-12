@@ -4,7 +4,7 @@
 .. module:: amanita
     :noindex:
     :platform: Linux
-    :synopsis: create customizable python projects.
+    :synopsis:  Of the mushroom, said the Caterpillar.
 
 .. moduleauthor:: constrict0r <constrict0r@protonmail.com>
 """
