@@ -60,9 +60,9 @@ Requirements
 
 All requirements are installed (with the user approval) when needed:
 
-  - `pypoetry <https://poetry.eustace.io>`_.
-  - `direnv <https://direnv.net>`_: optional, Linux or MacOS only.
-  - `git <https://git-scm.com>`_: optional.
+- `pypoetry <https://poetry.eustace.io>`_.
+- `direnv <https://direnv.net>`_: optional, Linux or MacOS only.
+- `git <https://git-scm.com>`_: optional.
 
 Usage
 =====
@@ -87,10 +87,10 @@ To create a package with development profile:
 
 A development profile includes:
 
-  - A virtual enviroment.
-  - `Direnv <https://direnv.net>`_ configuration.
-  - `Sphinx <http://www.sphinx-doc.org/en/stable>`_ configuration.
-  - `A git <https://git-scm.com/>`_ repository.
+- A virtual enviroment.
+- `Direnv <https://direnv.net>`_ configuration.
+- `Sphinx <http://www.sphinx-doc.org/en/stable>`_ configuration.
+- `A git <https://git-scm.com/>`_ repository.
 
 To create a web application with `flask <https://flask.pocoo.org>`_ from an `openapi <https://swagger.io/specification>`_ specification:
 
@@ -104,14 +104,11 @@ Options
 This package offers multiple options to customize the project creation
 process:
 
-  -V, --version         Show the version and exit.
-  -d, --direnv          Install and configure  `direnv <https://direnv.net>`_ console enviroment
-                        switcher.
-  -v, --venv            Create and configure a virtual enviroment inside the
-                        project.
-  -e, --venv-path TEXT  Create and configure a virtual enviroment on the given
-                        path.
-  -h, --help            Show help and exit.
+-V, --version         Show the version and exit.
+-d, --direnv          Install and configure  `direnv <https://direnv.net>`_ console switcher.
+-v, --venv            Create and configure a virtual enviroment inside project.
+-e, --venv-path TEXT  Create and configure a virtual enviroment on the path.
+-h, --help            Show help and exit.
 
 Compatibility
 =============
