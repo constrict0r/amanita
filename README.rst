@@ -118,6 +118,7 @@ process:
 -d, --direnv          Install and configure  `direnv <https://direnv.net>`_ console enviroment switcher.
 -v, --venv            Create and configure a virtual enviroment inside the project.
 -e, --venv-path TEXT  Create and configure a virtual enviroment on the given path.
+--venv-only           Only create a virtual enviroment on PATH.
 -h, --help            Show help and exit.
 
 Compatibility
@@ -128,15 +129,13 @@ Python 3.
 License
 =======
 
-MIT. See the `LICENSE <LICENSE>`_ file for more details.
+MIT. See the `LICENSE <https://raw.githubusercontent.com/constrict0r/amanita/master/LICENSE>`_ file for more details.
 
 API
 ===
 
 - `Module Index <https://amanita.readthedocs.io/en/latest/py-modindex.html>`_
 - `Index <https://amanita.readthedocs.io/en/latest/genindex.html>`_
-
-See `read the docs <https://amanita.readthedocs.io>`_.
 
 Authors
 =======
