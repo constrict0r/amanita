@@ -23,19 +23,22 @@ def version_msg():
 @click.version_option(__version__, u'-V', u'--version', message=version_msg())
 @click.argument('path', required=True)
 @click.option(
-     u'-d', u'--direnv', is_flag=True,
+     u'-d', u'--direnv', is_flag=True, default=False,
      help=u'Install and configure direnv console enviroment switcher.')
 @click.option(
-     u'-v', '--venv', is_flag=True,
+     u'-v', '--venv', is_flag=True, default=False,
      help=u'Create and configure a virtual enviroment inside the project.')
 @click.option(
-     u'-e', '--venv-path',
+     u'-e', '--venv-path', default=None,
      help=u'Create and configure a virtual enviroment on the given path.')
+@click.option(
+    u'--venv-only', is_flag=True, default=False,
+    help=u'Only create a virtual enviroment on PATH.')
 # TODO: add --dry-run
-def main(path, direnv, venv, venv_path):
+def main(path, direnv, venv, venv_path, venv_only):
     """Creates a customizable python project
 
     Package main entry point.
     """
 
-    project.Project.create(path, direnv, venv, venv_path)
+    project.Project.create(path, direnv, venv, venv_path, venv_only)

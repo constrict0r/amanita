@@ -7,6 +7,37 @@ import shutil
 from amanita import project
 
 
+# Create only virtual enviroment.
+def test_create_only_venv():
+
+    if os.path.isdir('venv'):
+        shutil.rmtree(os.path.join('venv'))
+
+    subprocess.check_call('amanita venv --venv-only',
+                          env=os.environ.copy(),
+                          shell=True)
+    assert os.path.isdir('venv')
+    shutil.rmtree(os.path.join('venv'))
+
+
+# Create only virtual enviroment with nonexisting path.
+@pytest.mark.xfail
+def test_create_only_venv_nonexisting():
+
+    subprocess.check_call('amanita /dev/null --venv-only',
+                          env=os.environ.copy(),
+                          shell=True)
+
+
+# Create only virtual enviroment with non-permission.
+@pytest.mark.xfail
+def test_create_only_venv_forbiden():
+
+    subprocess.check_call('amanita /root --venv-only',
+                          env=os.environ.copy(),
+                          shell=True)
+
+
 # Create project.
 def test_create_project():
 
@@ -66,15 +97,6 @@ def test_create_venv_forbidden():
     project.Project.venv_setup('/root')
 
 
-# Overwrite virtual enviroment.
-def test_overwrite_venv():
-
-    project.Project.venv_setup(os.path.join(''))
-    project.Project.venv_setup(os.path.join(''))
-    assert os.path.isdir('.venv')
-    shutil.rmtree(os.path.join('.venv'))
-
-
 # Create project with virtual enviroment.
 def test_create_project_venv():
 
@@ -85,9 +107,18 @@ def test_create_project_venv():
     shutil.rmtree(os.path.join('muscaria'))
 
 
+# Overwrite virtual enviroment.
+@pytest.mark.xfail
+def test_overwrite_venv():
+
+    project.Project.venv_setup(os.path.join(''))
+    project.Project.venv_setup(os.path.join(''))
+
+
 # Create project with virtual enviroment outside the project directory.
 def test_create_project_venv_out():
 
+    shutil.rmtree(os.path.join('.venv'))
     subprocess.check_call('amanita muscaria -e venv',
                           env=os.environ.copy(),
                           shell=True)
