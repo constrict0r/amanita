@@ -71,8 +71,10 @@ Requirements
 All requirements are installed (with the user approval) when needed:
 
 - `pypoetry <https://poetry.eustace.io>`_.
+
 - `direnv <https://direnv.net>`_: optional, Linux or MacOS only.
 - `git <https://git-scm.com>`_: optional.
+- `sphinx <https://sphinx-doc.org/en/stable>`_: optional.
 
 Usage
 =====
@@ -97,10 +99,11 @@ To create a package with development profile:
 
 A development profile includes:
 
+- A package directory layout.
 - A virtual enviroment.
 - `Direnv <https://direnv.net>`_ configuration.
 - `Sphinx <http://www.sphinx-doc.org/en/stable>`_ configuration.
-- `A git <https://git-scm.com/>`_ repository.
+- A `git <https://git-scm.com/>`_ repository.
 
 To create a web application with `flask <https://flask.pocoo.org>`_ from an `openapi <https://swagger.io/specification>`_ specification:
 
