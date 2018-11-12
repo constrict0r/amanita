@@ -121,7 +121,7 @@ Python 3.
 License
 =======
 
-MIT. See the `LICENSE <LICENSE>`_ file for more details.
+MIT. See the `LICENSE <https://raw.githubusercontent.com/constrict0r/amanita/master/LICENSE>`_ file for more details.
 
 API
 ===
