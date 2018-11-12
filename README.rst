@@ -2,17 +2,17 @@
 Amanita
 =======
 
-.. image:: https://img.shields.io/pypi/v/amanita.svg
-    :target: https://pypi.python.org/pypi/amanita
-    :alt: Latest PyPI version
+  .. image:: https://img.shields.io/pypi/v/amanita.svg
+     :target: https://pypi.python.org/pypi/amanita
+     :alt: Latest PyPI version
 
-.. image:: https://api.travis-ci.com/constrict0r/amanita.svg
-   :target: https://travis-ci.org/constrict0r/amanita
-   :alt: Latest Travis CI build status
+  .. image:: https://api.travis-ci.com/constrict0r/amanita.svg
+     :target: https://travis-ci.org/constrict0r/amanita
+     :alt: Latest Travis CI build status
 
-.. image:: https://readthedocs.org/projects/amanita/badge
-   :target: https://amanita.readthedocs.io
-   :alt: Latest Readthedocs build status
+  .. image:: https://readthedocs.org/projects/amanita/badge
+     :target: https://amanita.readthedocs.io
+     :alt: Latest Readthedocs build status
 
 Create customizable python projects from a simple package
 directory layout to a web application.
@@ -105,7 +105,7 @@ A development profile includes:
 - `Sphinx <http://www.sphinx-doc.org/en/stable>`_ configuration.
 - A `git <https://git-scm.com/>`_ repository.
 
-To create a web application with `flask <https://flask.pocoo.org>`_ from an `openapi <https://swagger.io/specification>`_ specification:
+To create a web application with `flask <http://flask.pocoo.org>`_ from an `openapi <https://swagger.io/specification>`_ specification:
 
 .. code-block:: sh
 
