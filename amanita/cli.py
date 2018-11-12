@@ -33,6 +33,10 @@ def version_msg():
      help=u'Create and configure a virtual enviroment on the given path.')
 # TODO: add --dry-run
 def main(path, direnv, venv, venv_path):
-    """Creates a customizable python project"""
+    """Creates a customizable python project
+
+    Package main entry point.
+
+    """
 
     project.Project(path, direnv, venv, venv_path)
