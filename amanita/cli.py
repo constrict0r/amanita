@@ -36,7 +36,6 @@ def main(path, direnv, venv, venv_path):
     """Creates a customizable python project
 
     Package main entry point.
-
     """
 
     project.Project.create(path, direnv, venv, venv_path)

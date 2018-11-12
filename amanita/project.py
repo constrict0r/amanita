@@ -17,17 +17,21 @@ class Project:
     def create(path, direnv=False, venv=False, venv_path=None):
         """Create customizable python projects.
 
-       Each project includes a package directory layout and optionally:
+        Each project includes a package directory layout and optionally:
 
-       - A virtual enviroment inside or outside the project folder.
-       - `Direnv <https://direnv.net>`_ console switcher configuration (linux).
+        - A virtual enviroment inside or outside the project.
 
-       Args:
-           path (str): Path where to create the project.
-           direnv (bool): Configure direnv.
-           venv (bool): Create a virtual enviroment inside the project folder.
-           venv_path (str): Create a virtual enviroment on the given path.
-    """
+        - `Direnv <https://direnv.net>`_ configuration.
+
+        Args:
+            path (str): Path where to create the project.
+            direnv (bool): Configure direnv.
+            venv (bool): Create a virtual enviroment inside the project folder.
+            venv_path (str): Create a virtual enviroment on the given path.
+
+        Returns:
+            bool: True for success, False otherwise.
+        """
         # Create package folder structure.
         try:
             assert subprocess.call('poetry new -- ' +
@@ -44,6 +48,8 @@ class Project:
 
         if venv_path is not None:
             amanita.project.Project.venv_setup(venv_path)
+
+        return True
 
     # Create virtual enviroment.
     @staticmethod
