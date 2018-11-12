@@ -39,4 +39,4 @@ def main(path, direnv, venv, venv_path):
 
     """
 
-    project.Project(path, direnv, venv, venv_path)
+    project.Project.create(path, direnv, venv, venv_path)
