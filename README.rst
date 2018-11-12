@@ -51,7 +51,7 @@ Ingredients
      :alt: Click
 
   .. image:: resources/img/sphinx.png
-     :target: http://www.sphinx-doc.org/en/stable
+     :target: http://www.sphinx-doc.org/en/master
      :alt: Sphinx
 
   .. image:: resources/img/amanita.png
@@ -74,7 +74,7 @@ All requirements are installed (with the user approval) when needed:
 
 - `direnv <https://direnv.net>`_: optional, Linux or MacOS only.
 - `git <https://git-scm.com>`_: optional.
-- `sphinx <https://sphinx-doc.org/en/stable>`_: optional.
+- `sphinx <http://www.sphinx-doc.org/en/master>`_: optional.
 
 Usage
 =====
