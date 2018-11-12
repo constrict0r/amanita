@@ -27,7 +27,7 @@ def version_msg():
      help=u'Install and configure direnv console enviroment switcher.')
 @click.option(
      u'-v', '--venv', is_flag=True,
-     help=u'Create and configure a virtual enviroment.')
+     help=u'Create and configure a virtual enviroment inside the project.')
 @click.option(
      u'-e', '--venv-path',
      help=u'Create and configure a virtual enviroment on the given path.')

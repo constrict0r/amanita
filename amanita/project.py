@@ -23,6 +23,7 @@ class Project:
             path (str): Path where to create the project.
             direnv: Configure direnv?
             venv: Create a virtual enviroment?
+            venv_path: Create a virtual enviroment on the given path.
         """
 
         # Create package folder structure.
