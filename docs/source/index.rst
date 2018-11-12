@@ -81,7 +81,7 @@ The development profile includes:
   - `Sphinx <http://www.sphinx-doc.org/en/stable>`_ configuration.
   - A `git <https://git-scm.com/>`_ repository.
 
-To create a web application with flask from an openapi specification:
+To create a web application with `flask <https://flask.pocoo.org>`_ from an `openapi <https://swagger.io/specification>`_ specification:
 
 .. code-block:: sh
 
@@ -89,6 +89,18 @@ To create a web application with flask from an openapi specification:
 
 Options
 =======
+
+This package offers multiple options to customize the project creation
+process:
+
+  -V, --version         Show the version and exit.
+  -d, --direnv          Install and configure  `direnv <https://direnv.net>`_ console enviroment
+                        switcher.
+  -v, --venv            Create and configure a virtual enviroment inside the
+                        project.
+  -e, --venv-path TEXT  Create and configure a virtual enviroment on the given
+                        path.
+  -h, --help            Show help and exit.
 
 API
 ===
