@@ -1,0 +1,19 @@
+@startuml
+start
+:Create layout;
+
+if (venv-path not empty) then (yes)
+  :Create venv on given path;
+else (no)
+  if (venv?) then (yes)
+    :Create venv inside project;
+    :Set venv path = .venv;
+  else (no)
+  endif
+endif
+
+if (OS = linux and venv_path not empty?) then (yes)
+  :Handle direnv configuration;
+endif
+end
+@enduml

@@ -1,0 +1,12 @@
+@startuml
+start
+:Get arguments;
+
+if (venv only?) then (yes)
+  :Create venv on PATH;
+else (no)
+  :Create project on PATH;
+endif
+
+stop
+@enduml

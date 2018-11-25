@@ -1,0 +1,10 @@
+@startuml
+start
+
+if (direnv installed by apt?) then (yes)
+else (no)
+  :Install direnv by apt;
+endif
+
+end
+@enduml

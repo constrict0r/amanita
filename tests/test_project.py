@@ -148,15 +148,15 @@ def test_create_project_venv_out_forbidden():
                           shell=True)
 
 
-# Create project with virtual enviroment inside and
-# outside the project directory.
+# Create project with virtual enviroment outside the project
+# even when inside and outside locations are specified.
 def test_create_project_venv_in_out():
 
     shutil.rmtree(os.path.join('muscaria'))
     subprocess.check_call('amanita muscaria -v -e venv',
                           env=os.environ.copy(),
                           shell=True)
-    assert os.path.isdir('muscaria/.venv')
+    assert not os.path.isdir('muscaria/.venv')
     assert os.path.isdir('venv')
     shutil.rmtree(os.path.join('muscaria'))
     shutil.rmtree(os.path.join('venv'))

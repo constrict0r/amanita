@@ -50,13 +50,18 @@ class Project:
                                        'project.', fg='red'))
                 sys.exit(1)
 
-            # Create virtual enviroment inside.
-            if venv is True:
-                amanita.project.Project.venv_setup(path)
-
             # Create virtual enviroment outside.
             if venv_path is not None:
                 amanita.project.Project.venv_setup(venv_path)
+
+            # Create virtual enviroment inside.
+            elif venv is True:
+                amanita.project.Project.venv_setup(path)
+
+            # Create direnv configuration.
+            if direnv and venv is True:
+                click.echo(click.style('Running direnv-setup.sh ...',
+                                       fg='green'))
 
         return True
 
