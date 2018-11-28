@@ -137,8 +137,8 @@ MIT. See the `LICENSE <https://raw.githubusercontent.com/constrict0r/amanita/mas
 API
 ===
 
-- `Module Index <https://amanita.readthedocs.io/en/latest/py-modindex.html>`_
-- `Index <https://amanita.readthedocs.io/en/latest/genindex.html>`_
+- `Module Index <py-modindex.html>`_
+- `Index <genindex.html>`_
 
 Authors
 =======
