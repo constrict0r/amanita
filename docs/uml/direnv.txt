@@ -1,9 +1,26 @@
 @startuml
 start
 
-if (direnv installed by apt?) then (yes)
-else (no)
-  :Install direnv by apt;
+if (OS = Linux) then (yes)
+
+  if (venv_path contains '.venv') then (yes)
+  else (no)
+    :venv_path = venv_path + '.venv';
+  endif
+
+  :Create direnv configuration;
+
+  if (.bashrc configured for direnv?) then (yes)
+  else (no)
+    :Add eval "$(direnv hook bash)" to ~/.bashrc;
+  endif
+
+  if (direnv installed by apt?) then (yes)
+    :Run direnv allow;
+  else (no)
+    :Show warning message: must install direnv;
+  endif
+
 endif
 
 end

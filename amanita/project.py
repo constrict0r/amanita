@@ -57,11 +57,11 @@ class Project:
             # Create virtual enviroment inside.
             elif venv is True:
                 amanita.project.Project.venv_setup(path)
+                venv_path = path
 
             # Create direnv configuration.
-            if direnv and venv is True:
-                click.echo(click.style('Running direnv-setup.sh ...',
-                                       fg='green'))
+            if direnv and venv_path is not None:
+                amanita.project.Project.direnv_setup(path, venv_path)
 
         return True
 
@@ -76,6 +76,7 @@ class Project:
         Returns:
             bool: True for success, False otherwise.
         """
+
         from poetry.utils.env import Env
 
         try:
@@ -93,7 +94,7 @@ class Project:
             sys.exit(1)
 
         try:
-            Env.build_venv(os.path.join(path, ".venv"))
+            Env.build_venv(os.path.join(path, '.venv'))
 
             click.echo('Created virtualenv ' + click.style('.venv',
                        fg='green') + ' in ' + click.style(path, fg='blue'))
@@ -111,5 +112,57 @@ class Project:
                        click.style(path, fg='yellow') +
                        click.style(' is not a directory', fg='red'))
             sys.exit(1)
+
+        return True
+
+    # Install and create direnv configuration.
+    @staticmethod
+    def direnv_setup(path, venv_path):
+        """Creates direnv configuration on the given path.
+
+        This function creates the configuration even if
+        direnv is not installed, but returns false if it is not installed.
+
+        Args:
+            path (str): Path where to create the direnv configuration.
+            venv_path (str): Path to an existing virtual enviroment.
+
+        Returns:
+            bool: True for success, False if direnv is not installed.
+        """
+
+        if sys.platform == "linux" or sys.platform == "linux2":
+
+            if '.venv' not in venv_path:
+                venv_path = os.path.join(venv_path, '.venv')
+
+            # Create direnv configuration.
+            direnv_file = open(os.path.join(path, '.envrc'), 'w+')
+            direnv_file.write('source ' + os.path.abspath(venv_path) +
+                              '/bin/activate')
+            direnv_file.close()
+
+            click.echo('Created direnv configuration ' +
+                       click.style('.venv', fg='green') + ' in ' +
+                       click.style(path, fg='blue'))          
+
+            try:
+                assert subprocess.call('dpkg-query -l direnv',
+                                       stdout=open(os.devnull, 'wb'),
+                                       shell=True) == 0
+
+                subprocess.call('direnv allow ' + path, shell=True)
+
+            except AssertionError:
+                click.echo(click.style('Warning: Direnv not installed. ',
+                                       fg='yellow'))
+                click.echo(click.style('The .envrc file was created ',
+                                       fg='green') +
+                           click.style('but it will not work until ',
+                                       fg='red') +
+                           click.style('direnv is installed: ', fg='red') +
+                           click.style('sudo apt install direnv -y',
+                                       fg='yellow'))
+                return False
 
         return True

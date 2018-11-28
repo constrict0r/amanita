@@ -2,18 +2,19 @@
 start
 :Create layout;
 
-if (venv-path not empty) then (yes)
-  :Create venv on given path;
+if (venv_path not empty) then (yes)
+  :Create venv on venv_path;
 else (no)
   if (venv?) then (yes)
-    :Create venv inside project;
-    :Set venv path = .venv;
+    :Create venv on PATH;
+    :Set venv_path = PATH;
   else (no)
   endif
 endif
 
-if (OS = linux and venv_path not empty?) then (yes)
-  :Handle direnv configuration;
+if (direnv = True and venv_path not empty?) then (yes)
+  :Setup direnv;
+else (no)
 endif
 end
 @enduml
