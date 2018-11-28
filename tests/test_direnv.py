@@ -24,7 +24,7 @@ def test_create_direnv_configuration_direnv_not_installed():
 @pytest.mark.skip
 def test_create_direnv_configuration_direnv_installed():
 
-        # Uninstall direnv.
+        # Install direnv.
         subprocess.call('sudo apt-get install direnv -y',
                         shell=True)
 
