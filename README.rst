@@ -118,7 +118,7 @@ This package offers multiple options to customize the project creation
 process:
 
 -V, --version         Show the version and exit.
--d, --direnv          Install and configure  `direnv <https://direnv.net>`_ console enviroment switcher.
+-d, --direnv          Configure  `direnv <https://direnv.net>`_ console enviroment switcher.
 -v, --venv            Create and configure a virtual enviroment inside the project.
 -e, --venv-path TEXT  Create and configure a virtual enviroment on the given path.
 --venv-only           Only create a virtual enviroment on PATH.
