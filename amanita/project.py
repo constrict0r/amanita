@@ -2,6 +2,7 @@
 
 """Creates customizable projects"""
 import os
+import pathlib
 import sys
 import subprocess
 
@@ -143,8 +144,32 @@ class Project:
             direnv_file.close()
 
             click.echo('Created direnv configuration ' +
-                       click.style('.venv', fg='green') + ' in ' +
-                       click.style(path, fg='blue'))          
+                       click.style('.envrc', fg='green') + ' in ' +
+                       click.style(path, fg='blue'))
+
+            # Configure ~/.bashrc if not already configured for direnv.
+            home = str(pathlib.Path.home())
+            bashrc = open(os.path.join(home, '.bashrc'), 'r')
+            bashrc_lines = bashrc.readlines()
+            bashrc.close()
+
+            found = False
+            for line in bashrc_lines:
+                if 'direnv' in line:
+                    found = True
+
+            if not found:
+                bashrc = open(os.path.join(home, '.bashrc'), 'a')
+                bashrc.write('eval "$(direnv hook bash)"')
+                bashrc.close()
+
+                click.echo('Added direnv configuration to ' +
+                           click.style('~/.bashrc', fg='green'))
+
+                click.echo('You must run: ' +
+                           click.style('source ~/.bashrc ', fg='yellow') +
+                           click.style('or restart session ', fg='green') +
+                           'to activate it')
 
             try:
                 assert subprocess.call('dpkg-query -l direnv',
