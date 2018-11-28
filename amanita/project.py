@@ -168,7 +168,8 @@ class Project:
 
                 click.echo('You must run: ' +
                            click.style('source ~/.bashrc ', fg='yellow') +
-                           click.style('or restart session ', fg='green') +
+                           'or ' +
+                           click.style('restart session ', fg='green') +
                            'to activate it')
 
             try:
