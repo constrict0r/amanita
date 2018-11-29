@@ -50,12 +50,16 @@ Ingredients
      :target: https://click.palletsprojects.com/en/7.x
      :alt: Click
 
+  .. image:: resources/img/travis.png
+     :target: https://es.wikipedia.org/wiki/Amanita_muscaria
+     :alt: Travis
+
   .. image:: resources/img/sphinx.png
      :target: http://www.sphinx-doc.org/en/master
      :alt: Sphinx
 
   .. image:: resources/img/amanita.png
-     :target: https://es.wikipedia.org/wiki/Amanita_muscaria
+     :target: https://travis-ci.org
      :alt: Amanita
 
 Installation
@@ -102,8 +106,9 @@ A development profile includes:
 - A package directory layout.
 - A virtual enviroment.
 - `Direnv <https://direnv.net>`_ configuration.
-- `Sphinx configuration <http://www.sphinx-doc.org/en/stable>`_.
-- `A git <https://git-scm.com/>`_ repository.
+- `Travis CI <https://travis-ci.org>`_ configuration.
+- `Sphinx doc <http://www.sphinx-doc.org/en/stable>`_ configuration.
+- `A git <https://git-scm.com>`_ repository.
 
 To create a web application with `flask <http://flask.pocoo.org>`_ from an `openapi <https://swagger.io/specification>`_ specification:
 
@@ -119,8 +124,9 @@ process:
 
 -V, --version         Show the version and exit.
 -d, --direnv          Configure  `direnv <https://direnv.net>`_ console enviroment switcher.
--v, --venv            Create and configure a virtual enviroment inside the project.
 -e, --venv-path TEXT  Create and configure a virtual enviroment on the given path.
+-t, --travis          Create `travis ci <https://travis-ci.org>`_ configuration.
+-v, --venv            Create and configure a virtual enviroment inside the project.
 --venv-only           Only create a virtual enviroment on PATH.
 -h, --help            Show help and exit.
 
