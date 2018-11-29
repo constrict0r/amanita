@@ -3,6 +3,7 @@
 """Creates customizable projects"""
 import os
 import pathlib
+import shutil
 import sys
 import subprocess
 
@@ -13,9 +14,13 @@ import amanita
 class Project:
     """Create customizable python projects."""
 
+    # Project directories.
+    ROOT_DIR = pathlib.Path(__file__).parents[1]
+    RESOURCES_DIR = os.path.join(str(ROOT_DIR), 'resources')
+
     # Create the project.
     @staticmethod
-    def create(path, direnv=False, venv=False, venv_path=None,
+    def create(path, direnv=False, travis=False, venv=False, venv_path=None,
                venv_only=False):
         """Create customizable python projects.
 
@@ -28,6 +33,7 @@ class Project:
         Args:
             path (str): Path where to create the project.
             direnv (bool): Configure direnv.
+            travis (bool): Create travis ci configuration.
             venv (bool): Create a virtual enviroment inside the project folder.
             venv_path (str): Create a virtual enviroment on the given path.
             venv_only (bool): Only create a virtual enviroment on PATH.
@@ -63,6 +69,10 @@ class Project:
             # Create direnv configuration.
             if direnv and venv_path is not None:
                 amanita.project.Project.direnv_setup(path, venv_path)
+
+            # Create travis configuration.
+            if travis:
+                amanita.project.Project.travis_setup(path)
 
         return True
 
@@ -116,7 +126,7 @@ class Project:
 
         return True
 
-    # Install and create direnv configuration.
+    # Create direnv configuration.
     @staticmethod
     def direnv_setup(path, venv_path):
         """Creates direnv configuration on the given path.
@@ -188,7 +198,26 @@ class Project:
                                        fg='red') +
                            click.style('direnv is installed: ', fg='red') +
                            click.style('sudo apt install direnv -y',
-                                       fg='yellow'))
+                                       fg='blue'))
                 return False
 
         return True
+
+    # Create travis configuration.
+    @staticmethod
+    def travis_setup(path):
+        """Creates travis configuration on the project path.
+
+        Args:
+            path (str): Path where to create the travis configuration.
+
+        Returns:
+            bool: True for success, False otherwise.
+        """
+        shutil.copyfile(os.path.join(amanita.project.Project.RESOURCES_DIR,
+                                     'travis-template.yml'),
+                        os.path.join(path, '.travis.yml'))
+
+        click.echo('Created travis configuration ' + click.style('.travis.yml',
+                                                                 fg='green') +
+                   ' in ' + click.style(path, fg='blue'))

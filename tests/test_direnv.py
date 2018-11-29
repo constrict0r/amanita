@@ -1,4 +1,4 @@
-# Project tests.
+# Direnv configuration tests.
 import os
 import pytest
 import subprocess

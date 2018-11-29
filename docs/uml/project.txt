@@ -16,5 +16,11 @@ if (direnv = True and venv_path not empty?) then (yes)
   :Setup direnv;
 else (no)
 endif
+
+if (travis = True?) then (yes)
+  :Setup travis;
+else (no)
+endif
+
 end
 @enduml

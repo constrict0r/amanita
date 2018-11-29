@@ -26,6 +26,9 @@ def version_msg():
      u'-d', u'--direnv', is_flag=True, default=False,
      help=u'Configure direnv console enviroment switcher.')
 @click.option(
+    u'-t', '--travis', is_flag=True, default=False,
+    help=u'Create travis ci configuration.')
+@click.option(
      u'-v', '--venv', is_flag=True, default=False,
      help=u'Create and configure a virtual enviroment inside the project.')
 @click.option(
@@ -34,11 +37,10 @@ def version_msg():
 @click.option(
     u'--venv-only', is_flag=True, default=False,
     help=u'Only create a virtual enviroment on PATH.')
-# TODO: add --dry-run
-def main(path, direnv, venv, venv_path, venv_only):
+def main(path, direnv, travis, venv, venv_path, venv_only):
     """Creates a customizable python project
 
     Package main entry point.
     """
 
-    project.Project.create(path, direnv, venv, venv_path, venv_only)
+    project.Project.create(path, direnv, travis, venv, venv_path, venv_only)
