@@ -51,7 +51,7 @@ Ingredients
      :alt: Click
 
   .. image:: resources/img/travis.png
-     :target: https://es.wikipedia.org/wiki/Amanita_muscaria
+     :target: https://travis-ci.org
      :alt: Travis
 
   .. image:: resources/img/sphinx.png
@@ -59,7 +59,7 @@ Ingredients
      :alt: Sphinx
 
   .. image:: resources/img/amanita.png
-     :target: https://travis-ci.org
+     :target: https://es.wikipedia.org/wiki/Amanita_muscaria
      :alt: Amanita
 
 Installation
