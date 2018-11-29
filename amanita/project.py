@@ -20,8 +20,8 @@ class Project:
 
     # Create the project.
     @staticmethod
-    def create(path, direnv=False, travis=False, venv=False, venv_path=None,
-               venv_only=False):
+    def create(path, direnv=False, tox=False, travis=False, venv=False,
+               venv_path=None, venv_only=False):
         """Create customizable python projects.
 
         Each project includes a package directory layout and optionally:
@@ -30,9 +30,14 @@ class Project:
 
         - `Direnv <https://direnv.net>`_ configuration.
 
+        - `tox <https://tox.readthedocs.io/en/latest>`_ configuration.
+
+        - `travis <https://travis-ci.org>`_ configuration.
+
         Args:
             path (str): Path where to create the project.
             direnv (bool): Configure direnv.
+            tox (bool): Add tox configuration.
             travis (bool): Create travis ci configuration.
             venv (bool): Create a virtual enviroment inside the project folder.
             venv_path (str): Create a virtual enviroment on the given path.
@@ -69,6 +74,10 @@ class Project:
             # Create direnv configuration.
             if direnv and venv_path is not None:
                 amanita.project.Project.direnv_setup(path, venv_path)
+
+            # Create tox configuration.
+            if tox:
+                amanita.project.Project.tox_setup(path)
 
             # Create travis configuration.
             if travis:
@@ -203,6 +212,47 @@ class Project:
 
         return True
 
+    # Create tox configuration.
+    @staticmethod
+    def tox_setup(path):
+        """Creates tox configuration on the project path.
+
+        Args:
+            path (str): Path where pyproject.toml resides.
+
+        Returns:
+            bool: True for success, False otherwise.
+        """
+        os.chdir(path)
+
+        # Add tox dependency to pyproject.yml.
+        try:
+            assert subprocess.call('poetry add tox', shell=True) == 0
+
+        except AssertionError:
+            click.echo('An error occured adding ' +
+                       click.style('tox configuration', fg='red') +
+                       ' to ' +
+                       click.style(os.path.join(path, 'pyproject.toml'),
+                                   fg='blue'))
+            sys.exit(1)
+
+        # Add tox configuration to pyproject.yml.
+        import fileinput
+
+        RESOURCES_DIR = amanita.project.Project.RESOURCES_DIR
+        with open('pyproject.toml',
+                  'a') as fout, fileinput.input(os.path.join
+                                                (RESOURCES_DIR,
+                                                 'tox-template.toml')) as fin:
+            for line in fin:
+                fout.write(line)
+
+        click.echo('Added ' + click.style('tox configuration', fg='green') +
+                   ' to ' + click.style(os.path.join(path, 'pyproject.toml'),
+                                        fg='blue'))
+        return True
+
     # Create travis configuration.
     @staticmethod
     def travis_setup(path):
@@ -221,3 +271,4 @@ class Project:
         click.echo('Created travis configuration ' + click.style('.travis.yml',
                                                                  fg='green') +
                    ' in ' + click.style(path, fg='blue'))
+        return True

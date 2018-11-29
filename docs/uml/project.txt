@@ -22,5 +22,10 @@ if (travis = True?) then (yes)
 else (no)
 endif
 
+if (tox = True?) then (yes)
+  :Setup tox;
+else (no)
+endif
+
 end
 @enduml

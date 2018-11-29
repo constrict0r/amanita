@@ -37,10 +37,14 @@ def version_msg():
 @click.option(
     u'--venv-only', is_flag=True, default=False,
     help=u'Only create a virtual enviroment on PATH.')
-def main(path, direnv, travis, venv, venv_path, venv_only):
+@click.option(
+    u'-x', '--tox', is_flag=True, default=False,
+    help=u'Add tox configuration.')
+def main(path, direnv, tox, travis, venv, venv_path, venv_only):
     """Creates a customizable python project
 
     Package main entry point.
     """
 
-    project.Project.create(path, direnv, travis, venv, venv_path, venv_only)
+    project.Project.create(path, direnv, tox, travis, venv, venv_path,
+                           venv_only)

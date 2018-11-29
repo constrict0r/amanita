@@ -50,6 +50,10 @@ Ingredients
      :target: https://click.palletsprojects.com/en/7.x
      :alt: Click
 
+  .. image:: resources/img/tox.png
+     :target: https://tox.readthedocs.io/en/latest
+     :alt: Tox
+
   .. image:: resources/img/travis.png
      :target: https://travis-ci.org
      :alt: Travis
@@ -75,7 +79,6 @@ Requirements
 All requirements are installed (with the user approval) when needed:
 
 - `pypoetry <https://poetry.eustace.io>`_.
-
 - `direnv <https://direnv.net>`_: optional, Linux or MacOS only.
 - `git <https://git-scm.com>`_: optional.
 - `sphinx <http://www.sphinx-doc.org/en/master>`_: optional.
@@ -106,6 +109,7 @@ A development profile includes:
 - A package directory layout.
 - A virtual enviroment.
 - `Direnv <https://direnv.net>`_ configuration.
+- `Tox <https://tox.readthedocs.io/en/latest>`_ configuration.
 - `Travis CI <https://travis-ci.org>`_ configuration.
 - `Sphinx doc <http://www.sphinx-doc.org/en/stable>`_ configuration.
 - `A git <https://git-scm.com>`_ repository.
@@ -128,6 +132,7 @@ process:
 -t, --travis          Create `travis ci <https://travis-ci.org>`_ configuration.
 -v, --venv            Create and configure a virtual enviroment inside the project.
 --venv-only           Only create a virtual enviroment on PATH.
+-x, --tox	      Add `tox <https://tox.readthedocs.io/en/latest>`_ configuration.
 -h, --help            Show help and exit.
 
 Compatibility
