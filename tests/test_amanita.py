@@ -30,5 +30,3 @@ def test_console_args(capfd):
     print(console_output)
     out, err = capfd.readouterr()
     assert 'amanita' in out
-
-

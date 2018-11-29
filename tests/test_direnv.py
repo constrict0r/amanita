@@ -7,6 +7,7 @@ from amanita import project
 
 
 # Create direnv configuration when direnv is not installed.
+@pytest.mark.skip
 def test_create_direnv_configuration_direnv_not_installed():
 
         # Uninstall direnv.
@@ -21,7 +22,6 @@ def test_create_direnv_configuration_direnv_not_installed():
 
 
 # Create direnv configuration when direnv is installed.
-@pytest.mark.skip
 def test_create_direnv_configuration_direnv_installed():
 
         # Install direnv.
