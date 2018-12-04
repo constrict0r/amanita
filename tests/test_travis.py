@@ -4,10 +4,9 @@ import shutil
 import subprocess
 
 
-# Create direnv configuration when direnv is not installed.
+# Create travis configuration.
 def test_create_travis_configuration():
 
-        # Create travis configuration.
         subprocess.check_call('amanita muscaria -t', env=os.environ.copy(),
                               shell=True)
 

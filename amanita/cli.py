@@ -7,8 +7,7 @@ import sys
 
 import click
 
-from amanita import __version__
-from amanita import project
+import amanita
 
 
 def version_msg():
@@ -20,7 +19,8 @@ def version_msg():
 
 
 @click.command(context_settings=dict(help_option_names=[u'-h', u'--help']))
-@click.version_option(__version__, u'-V', u'--version', message=version_msg())
+@click.version_option(amanita.__version__, u'-V', u'--version',
+                      message=version_msg())
 @click.argument('path', required=True)
 @click.option(
      u'-d', u'--direnv', is_flag=True, default=False,
@@ -28,6 +28,9 @@ def version_msg():
 @click.option(
     u'-t', '--travis', is_flag=True, default=False,
     help=u'Create travis ci configuration.')
+@click.option(
+    u'-w', '--twine', is_flag=True, default=False,
+    help=u'Create twine configuration.')
 @click.option(
      u'-v', '--venv', is_flag=True, default=False,
      help=u'Create and configure a virtual enviroment inside the project.')
@@ -40,11 +43,12 @@ def version_msg():
 @click.option(
     u'-x', '--tox', is_flag=True, default=False,
     help=u'Add tox configuration.')
-def main(path, direnv, tox, travis, venv, venv_path, venv_only):
+def main(path, direnv, tox, travis, twine, venv, venv_path, venv_only):
     """Creates a customizable python project
 
     Package main entry point.
     """
 
-    project.Project.create(path, direnv, tox, travis, venv, venv_path,
-                           venv_only)
+    from amanita import project
+    project.Project.create(path, direnv, tox, travis, twine,
+                           venv, venv_path, venv_only)

@@ -27,5 +27,10 @@ if (tox = True?) then (yes)
 else (no)
 endif
 
+if (twine = True?) then (yes)
+  :Setup twine;
+else (no)
+endif
+
 end
 @enduml

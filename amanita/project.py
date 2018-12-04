@@ -20,8 +20,8 @@ class Project:
 
     # Create the project.
     @staticmethod
-    def create(path, direnv=False, tox=False, travis=False, venv=False,
-               venv_path=None, venv_only=False):
+    def create(path, direnv=False, tox=False, travis=False,
+               twine=False, venv=False, venv_path=None, venv_only=False):
         """Create customizable python projects.
 
         Each project includes a package directory layout and optionally:
@@ -34,11 +34,14 @@ class Project:
 
         - `travis <https://travis-ci.org>`_ configuration.
 
+        - `twine <https://pypi.org/project/twine>`_ configuration.
+
         Args:
             path (str): Path where to create the project.
             direnv (bool): Configure direnv.
             tox (bool): Add tox configuration.
             travis (bool): Create travis ci configuration.
+            twine (bool): Create twine configuration.
             venv (bool): Create a virtual enviroment inside the project folder.
             venv_path (str): Create a virtual enviroment on the given path.
             venv_only (bool): Only create a virtual enviroment on PATH.
@@ -82,6 +85,10 @@ class Project:
             # Create travis configuration.
             if travis:
                 amanita.project.Project.travis_setup(path)
+
+            # Create twine configuration.
+            if twine:
+                amanita.project.Project.twine_setup(path)
 
         return True
 
@@ -212,6 +219,57 @@ class Project:
 
         return True
 
+    # Get plain path to directory where pyproject.toml resides.
+    def get_plain_path(path):
+        """Ensures path does not contains pyproject.toml in it.
+
+        Args:
+            path (str): Path where pyproject.toml resides.
+
+        Returns:
+            string: Plain path to directory where pyproject.toml resides.
+        """
+        # Remove pyproject.toml if is part of path.
+        if 'pyproject.toml' in str(path):
+            return path.replace('pyproject.toml', '')
+
+        return path
+
+    # Add dependecy to pyproject.toml.
+    def add_dependency(path, dependency):
+        """Adds a python dependency to pyproject.toml
+
+        Args:
+            project_path (str): Path where pyproject.toml resides.
+            dependency (str): Dependency name.
+
+        Returns:
+            bool: True for success, False otherwise.
+        """
+        original_path = os.getcwd()
+        plain_path = amanita.project.Project.get_plain_path(path)
+        os.chdir(plain_path)
+
+        try:
+            assert subprocess.call('poetry add ' + dependency,
+                                   env=os.environ.copy(), shell=True) == 0
+
+        except AssertionError:
+            click.echo('An error occured adding ' +
+                       click.style(dependency + ' dependency', fg='red') +
+                       ' to ' +
+                       click.style(os.path.join(plain_path, 'pyproject.toml'),
+                                   fg='blue'))
+            sys.exit(1)
+
+        click.echo('Added ' + click.style(dependency + ' dependecy',
+                                          fg='green') +
+                   ' to ' + click.style(os.path.join(plain_path,
+                                                     'pyproject.toml'),
+                                        fg='blue'))
+        os.chdir(original_path)
+        return True
+
     # Create tox configuration.
     @staticmethod
     def tox_setup(path):
@@ -223,33 +281,24 @@ class Project:
         Returns:
             bool: True for success, False otherwise.
         """
-        os.chdir(path)
-
         # Add tox dependency to pyproject.yml.
-        try:
-            assert subprocess.call('poetry add tox', shell=True) == 0
-
-        except AssertionError:
-            click.echo('An error occured adding ' +
-                       click.style('tox configuration', fg='red') +
-                       ' to ' +
-                       click.style(os.path.join(path, 'pyproject.toml'),
-                                   fg='blue'))
-            sys.exit(1)
+        plain_path = amanita.project.Project.get_plain_path(path)
+        amanita.project.Project.add_dependency(plain_path, 'tox')
 
         # Add tox configuration to pyproject.yml.
         import fileinput
 
-        RESOURCES_DIR = amanita.project.Project.RESOURCES_DIR
-        with open('pyproject.toml',
+        resources_dir = amanita.project.Project.RESOURCES_DIR
+        with open(os.path.join(plain_path, 'pyproject.toml'),
                   'a') as fout, fileinput.input(os.path.join
-                                                (RESOURCES_DIR,
+                                                (resources_dir,
                                                  'tox-template.toml')) as fin:
             for line in fin:
                 fout.write(line)
 
         click.echo('Added ' + click.style('tox configuration', fg='green') +
-                   ' to ' + click.style(os.path.join(path, 'pyproject.toml'),
+                   ' to ' + click.style(os.path.join(plain_path,
+                                                     'pyproject.toml'),
                                         fg='blue'))
         return True
 
@@ -272,3 +321,21 @@ class Project:
                                                                  fg='green') +
                    ' in ' + click.style(path, fg='blue'))
         return True
+
+    # Create twine configuration.
+    @staticmethod
+    def twine_setup(path):
+        """Setups twine configuration on the project path.
+
+        This function adds twine dependency to pyproject.toml and
+        add text on README.md about twine usage.
+
+        Args:
+            path (str): Path where pyproject.toml resides.
+
+        Returns:
+            bool: True for success, False otherwise.
+        """
+        # Add twine dependency to pyproject.yml.
+        plain_path = amanita.project.Project.get_plain_path(path)
+        amanita.project.Project.add_dependency(plain_path, 'twine')

@@ -11,5 +11,6 @@ def test_create_tox_configuration():
         subprocess.check_call('amanita muscaria -x', env=os.environ.copy(),
                               shell=True)
 
-        assert 'legacy_tox_ini' in open(os.path.join('muscaria', 'pyproject.toml')).read()
+        assert 'legacy_tox_ini' in open(os.path.join('muscaria',
+                                                     'pyproject.toml')).read()
         shutil.rmtree(os.path.join('muscaria'))
